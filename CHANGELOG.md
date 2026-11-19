@@ -1,5 +1,15 @@
 # Changelog
 
+### v1.0.5 — 2026-11-19
+- **Installable mobile app (PWA)** — the planner installs to a phone's home screen with its own app icon and opens fullscreen in standalone mode with no browser bars (Android/desktop via native install prompt; iPhone/iPad via Share → Add to Home Screen).
+- **App icon** — generated map-pin icon in the app's mint-green/sky-blue palette, published at 512/192/180 px (icons/icon-512.png, icons/icon-192.png, icons/apple-touch-icon.png).
+- **Web app manifest** — manifest.webmanifest: name "Sai Kung Tour Planner", standalone display, theme color #0e7c66, regular + maskable icons.
+- **Offline shell** — service worker (sw.js) precaches the app shell; navigation requests are network-first so updates land immediately, other same-origin assets are cache-first; old caches cleaned on activate.
+- **Install button + help modal** — "Install app" chip at the bottom of the sidebar next to the 🌐 language chip; on devices without a native install prompt it opens a per-platform help modal.
+- **7-language install strings** — the button label and help modal follow the chosen language (en, zh-Hant, zh-Hans, fr, ja, ko, es).
+- Unchanged: desktop layout, mobile map-first layout, all features, coins, reviews, ratings.
+- Release: https://github.com/swaneeyeung-star/hk-tour-planner/releases/tag/v1.0.5
+
 ### v1.0.4 — 2026-11-19
 - **Walk speed default 1×** — simulated walks now start at 1× instead of 8× (1× button pre-selected).
 - **Mascot popups no longer block the screen** — the mascot-discovery overlay is now a compact bottom-centered card (no full-screen dim) that auto-dismisses after ~4.5 s.
