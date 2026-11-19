@@ -1,5 +1,13 @@
 # Changelog
 
+### v1.0.7 — 2026-11-19
+- **Review cap reworked — your own reviews, per local calendar day** — the counter now reads "Reviews used today: 0 of 2" before your first review, counts only reviews authored by the current user with today's local-date timestamp (other users' and seeded reviews never count), and locks with a translated daily-limit toast after the 2nd. +15 🪙 first-review reward untouched.
+- **Rebrand: "Wanderbos"** — every user-facing "mascot" wording is now Wanderbos across the UI in all 7 languages (en, zh-Hant, zh-Hans, fr, ja, ko, es), including hardcoded English strings, aria-labels, the guest disclaimer, tour texts and the collectibles-page title (🐣 Wanderbos). Identifiers/keys unchanged.
+- **Tutorial rebuilt as a spotlight tour with tap-blocking** — every step now squares the exact section it describes (solid blue outline + glow; all 8 steps targeted: map, start controls, trip settings, route buttons, sim-walk, Wanderbos gallery, coins chip). A full-screen capture layer swallows every tap outside the spotlight and the tour's own buttons, so users can't mistap during the guide. Sidebar-feature steps auto-open the mobile menu and the spotlight recomputes during the transition, on resize and on menu toggles — fixing the mobile complaint that steps 2–4 explained unseeable left-column controls. Desktop layout untouched.
+- **Wanderbos looks integrated** — costume overlays now rotate with the character (per-look rot finally consumed) instead of sitting at a fixed angle, each of the 24 looks (4 packs × 6 styles) gets its own pose transform (rotate/scale/flip) and color grade, and costume art gains drop-shadow blending — no more pasted-on look. Collectible count (16) and all rewards unchanged.
+- Unchanged: desktop layout, mobile map-first layout, coins, rewards (+30/+60, +15 first review), routes, PWA/offline shell, 7-language UI.
+- Release: https://github.com/swaneeyeung-star/hk-tour-planner/releases/tag/v1.0.7
+
 ### v1.0.6 — 2026-11-19
 - **Mascot packs redesigned** — every collectable in a character pack now has its own distinct form: unique costume (chef toque, captain's & sailor caps, straw & sun hats, ranger & hard hats, explorer kit, baker's toque, party hat), props (lantern, incense, scroll, map, swim ring, surfboard, flower), sunglasses and individual poses — replacing the old colour-filter clones. All 24 pack-style looks are visually distinct across the 4 packs.
 - **Review cap: 2 per user** — each user can submit a maximum of 2 restaurant reviews (account or guest scope); the review form shows a live "reviews used: n/2" counter, locks at the limit, and a toast explains it in all 7 languages (en, zh-Hant, zh-Hans, fr, ja, ko, es). Stops coin farming.
