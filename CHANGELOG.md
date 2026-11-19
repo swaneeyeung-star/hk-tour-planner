@@ -1,5 +1,12 @@
 # Changelog
 
+### v1.0.6 — 2026-11-19
+- **Mascot packs redesigned** — every collectable in a character pack now has its own distinct form: unique costume (chef toque, captain's & sailor caps, straw & sun hats, ranger & hard hats, explorer kit, baker's toque, party hat), props (lantern, incense, scroll, map, swim ring, surfboard, flower), sunglasses and individual poses — replacing the old colour-filter clones. All 24 pack-style looks are visually distinct across the 4 packs.
+- **Review cap: 2 per user** — each user can submit a maximum of 2 restaurant reviews (account or guest scope); the review form shows a live "reviews used: n/2" counter, locks at the limit, and a toast explains it in all 7 languages (en, zh-Hant, zh-Hans, fr, ja, ko, es). Stops coin farming.
+- **Pin position fixes** — Seafood Island Restaurant moved from open water (~11 km SE of town) to Po Toi O village; Thai Dao moved to its real Sha Ha waterfront spot; Sai Kung Seafood Street, Man Tsai Kee and Cafe Pawsitive nudged onto the promenade line (off the water); Kachimushi de-overlapped from TAPS.
+- Unchanged: coins, rewards (+30/+60 mascots, +15 first review), routes, desktop & mobile layouts, 7-language UI, PWA/offline shell.
+- Release: https://github.com/swaneeyeung-star/hk-tour-planner/releases/tag/v1.0.6
+
 ### v1.0.5 — 2026-11-19
 - **Installable mobile app (PWA)** — the planner installs to a phone's home screen with its own app icon and opens fullscreen in standalone mode with no browser bars (Android/desktop via native install prompt; iPhone/iPad via Share → Add to Home Screen).
 - **App icon** — generated map-pin icon in the app's mint-green/sky-blue palette, published at 512/192/180 px (icons/icon-512.png, icons/icon-192.png, icons/apple-touch-icon.png).
