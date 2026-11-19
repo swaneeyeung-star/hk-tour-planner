@@ -1,5 +1,12 @@
 # Changelog
 
+### v1.0.8 — 2026-11-19
+- **Tutorial spotlight: full-screen shade with a lit cutout** — during the guide a dark shade (rgba(15,25,35,.58)) now covers the entire screen except a clean cutout around the area the current step describes; the described area stays highlighted with its blue outline, glow and a subtle blue tint. Replaces the previous giant 9999px box-shadow approach (unreliable on iOS/Safari) with a real full-screen shade layer (#tourDim) that punches the hole via clip-path.
+- **Tap-blocking unchanged** — the shade layer swallows every tap/touch outside the lit cutout (the tour's own Next/Back/Done buttons stay clickable), so mistaps are still impossible during the guide; sidebar-targeting steps still auto-open the mobile menu and the cutout recomputes during transitions, on resize and on menu toggles.
+- **Housekeeping** — internal version comments updated to v1.0.8 (PWA + mobile-map-first comments).
+- Unchanged: desktop layout, mobile map-first layout, all 8 tour steps and texts, coins, rewards, routes, PWA/offline shell, 7-language UI.
+- Release: https://github.com/swaneeyeung-star/hk-tour-planner/releases/tag/v1.0.8
+
 ### v1.0.7 — 2026-11-19
 - **Review cap reworked — your own reviews, per local calendar day** — the counter now reads "Reviews used today: 0 of 2" before your first review, counts only reviews authored by the current user with today's local-date timestamp (other users' and seeded reviews never count), and locks with a translated daily-limit toast after the 2nd. +15 🪙 first-review reward untouched.
 - **Rebrand: "Wanderbos"** — every user-facing "mascot" wording is now Wanderbos across the UI in all 7 languages (en, zh-Hant, zh-Hans, fr, ja, ko, es), including hardcoded English strings, aria-labels, the guest disclaimer, tour texts and the collectibles-page title (🐣 Wanderbos). Identifiers/keys unchanged.
