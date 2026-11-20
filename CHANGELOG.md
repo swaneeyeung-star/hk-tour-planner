@@ -1,5 +1,13 @@
 # Changelog
 
+### v1.0.15 — 2026-11-20
+- **HK flag badge removed, working compass added** — the flag badge in the map's bottom-right attribution corner is gone; in its place sits a working compass: an SVG compass rose whose needle shows your facing direction. On phones it reads the device's real heading (tap once to grant motion/compass permission, per iOS requirements); on desktop it rests pointing map-north. Tooltip/aria-label translated in all 7 languages (en, zh-Hant, zh-Hans, fr, ja, ko, es).
+- **OpenStreetMap credit retained** — the required '© OpenStreetMap contributors' line stays (OSM tile policy); nothing else in the corner changed.
+- **Repo automation: index.html auto-sync** — new GitHub Actions workflow (.github/workflows/sync-index.yml) pulls the live index.html into the repo root on every CHANGELOG push, so the tree tracks the current live source without manual drag-drop.
+- Version banners updated to v1.0.15 (3 markers).
+- Unchanged: desktop & mobile layouts, quick-tour behavior (scroll lock + guest auto-open), Wanderbos single pose, water-pin fixes, map data, restaurants, coins, reviews, i18n, PWA/offline shell.
+- Release: https://github.com/swaneeyeung-star/hk-tour-planner/releases/tag/v1.0.15
+
 ### v1.0.14 — 2026-11-20
 - **Leaflet credit removed, HK flag badge added** — the "Leaflet" link in the map's bottom-right attribution corner is gone (`map.attributionControl.setPrefix(false)`); a small Hong Kong flag badge (inline SVG: red field + white bauhinia petals) now sits in its place.
 - **OpenStreetMap credit retained** — the required '© OpenStreetMap contributors' line stays (OSM tile policy); nothing else in the corner changed.
