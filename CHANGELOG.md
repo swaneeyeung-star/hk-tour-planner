@@ -1,5 +1,11 @@
 # Changelog
 
+### v1.0.12 — 2026-11-20
+- **Wanderbos: single standard pose everywhere** — every Wanderbos now renders in the one standard pose in all contexts (map spawn points, discovery popups, the gallery and the collection). The 24 per-look pose transforms (rotate / scale / flip / translate) are removed: all `.mArt[data-look|=…]` rules now use `transform:none`.
+- **Costumes & colors untouched** — costume overlays (hats, props, aura), drop-shadow blending and every per-look color grade (filter) remain exactly as before. No pose-switching UI existed, so no UI removal was needed.
+- Unchanged: layouts (desktop & mobile), tour, coins, reviews, routes, 7-language UI, PWA/offline shell.
+- Release: https://github.com/swaneeyeung-star/hk-tour-planner/releases/tag/v1.0.12
+
 ### v1.0.11 — 2026-11-20
 - **Three water pins re-geocoded to their actual land positions (OpenStreetMap-verified):**
   - 🦞 **Seafood Island Restaurant** (海鮮島, G/F, 6 Po Toi O Chuen Road): from open water near Shelter Island (22.3247, 114.2899) to the **Po Toi O village waterfront** — 22.2750, 114.2954 (OSM hamlet 布袋澳 22.27493/114.29416, village residential polygon and coastline).
