@@ -20,26 +20,20 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - uses: android-actions/setup-android@v3
-
       - uses: gradle/actions/setup-gradle@v4
 
-      - name: Install SDK components
-        run: sdkmanager --install "platforms;android-34" "build-tools;34.0.0" "platform-tools"
+      - name: Show Android SDK
+        run: echo "ANDROID_HOME=$ANDROID_HOME" && ls "$ANDROID_HOME" || true
+
+      - name: Ensure SDK components
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null 2>&1 || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install "platforms;android-34" "build-tools;34.0.0" "platform-tools" >/dev/null
 
       - name: Fetch launcher icon
         run: |
           mkdir -p android/app/src/main/res/mipmap-xxxhdpi
-          curl -fsSL -o android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png "https://sites.hellominds.ai/scubavo.tuff/hk-tour-planner/icons/icon-512.png" || python3 -c "
-          import zlib,struct
-          w=h=512
-          rows=b''.join(b'\\x00'+bytes([14,124,102])*w for _ in range(h))
-          def chunk(t,d):
-              c=struct.pack('>I',len(d))+t+d
-              return c+struct.pack('>I',zlib.crc32(t+d)&0xffffffff)
-          png=b'\\x89PNG\\r\\n\\x1a\\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',w,h,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(rows))+chunk(b'IEND',b'')
-          open('android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png','wb').write(png)
-          "
+          curl -fsSL -o android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png "https://sites.hellominds.ai/scubavo.tuff/hk-tour-planner/icons/icon-512.png" || python3 android/tools/make_fallback_icon.py
 
       - name: Build APK
         run: |
