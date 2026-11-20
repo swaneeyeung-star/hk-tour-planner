@@ -1,5 +1,12 @@
 # Changelog
 
+### v1.0.9 — 2026-11-20
+- **Desktop tutorial restored to the original (pre-mobile) experience** — on desktop the quick tour behaves exactly as before the mobile-era rebuild: the original dashed blue outline around the described area with the original large translucent dim shadow (the 9999px box-shadow approach), no full-screen shade layer, no lit cutout, no solid spotlight squares, and no tap-blocking — the page stays fully interactive while the guide points things out, and the card renders with the original positioning logic.
+- **Mobile tutorial unchanged** — on phones/tablets the upgraded tour stays exactly as shipped in v1.0.8: full-screen shade + lit cutout, solid spotlight squares, tap-blocking outside the lit area, and auto-opening of the menu for sidebar steps.
+- **Implementation** — a viewport predicate `(max-width:900px), (pointer:coarse) and (max-height:520px)` dispatches between the restored legacy tour renderer (the original v1.0.5 logic, with Wanderbos wording kept) and the modern mobile tour; a `legacy-tour` body class restores the original spotlight styling and is removed on finish/exit so nothing leaks between modes.
+- Unchanged: all features, coins, rewards, routes, review cap, Wanderbos naming, 7-language UI, PWA/offline shell, desktop layout, mobile map-first layout.
+- Release: https://github.com/swaneeyeung-star/hk-tour-planner/releases/tag/v1.0.9
+
 ### v1.0.8 — 2026-11-19
 - **Tutorial spotlight: full-screen shade with a lit cutout** — during the guide a dark shade (rgba(15,25,35,.58)) now covers the entire screen except a clean cutout around the area the current step describes; the described area stays highlighted with its blue outline, glow and a subtle blue tint. Replaces the previous giant 9999px box-shadow approach (unreliable on iOS/Safari) with a real full-screen shade layer (#tourDim) that punches the hole via clip-path.
 - **Tap-blocking unchanged** — the shade layer swallows every tap/touch outside the lit cutout (the tour's own Next/Back/Done buttons stay clickable), so mistaps are still impossible during the guide; sidebar-targeting steps still auto-open the mobile menu and the cutout recomputes during transitions, on resize and on menu toggles.
