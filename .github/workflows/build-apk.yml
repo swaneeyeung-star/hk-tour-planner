@@ -1,0 +1,67 @@
+name: Build Android APK
+
+on:
+  push:
+    paths:
+      - 'android/**'
+      - '.github/workflows/build-apk.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: android-actions/setup-android@v3
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Install SDK components
+        run: sdkmanager --install "platforms;android-34" "build-tools;34.0.0" "platform-tools"
+
+      - name: Fetch launcher icon
+        run: |
+          mkdir -p android/app/src/main/res/mipmap-xxxhdpi
+          curl -fsSL -o android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png "https://sites.hellominds.ai/scubavo.tuff/hk-tour-planner/icons/icon-512.png" || python3 -c "
+          import zlib,struct
+          w=h=512
+          rows=b''.join(b'\\x00'+bytes([14,124,102])*w for _ in range(h))
+          def chunk(t,d):
+              c=struct.pack('>I',len(d))+t+d
+              return c+struct.pack('>I',zlib.crc32(t+d)&0xffffffff)
+          png=b'\\x89PNG\\r\\n\\x1a\\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',w,h,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(rows))+chunk(b'IEND',b'')
+          open('android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png','wb').write(png)
+          "
+
+      - name: Build APK
+        run: |
+          cd android
+          gradle --no-daemon assembleRelease
+
+      - name: Sign APK
+        run: |
+          cd android
+          keytool -genkeypair -v -keystore release.jks -alias sktp -keyalg RSA -keysize 2048 -validity 10000 -storepass SaikungPlanner2026 -keypass SaikungPlanner2026 -dname "CN=Sai Kung Tour Planner, OU=ScubaVo, O=ScubaVo, L=Hong Kong, S=Hong Kong, C=HK"
+          BT="$ANDROID_HOME/build-tools/34.0.0"
+          "$BT/zipalign" -f 4 app/build/outputs/apk/release/app-release-unsigned.apk aligned.apk
+          "$BT/apksigner" sign --ks release.jks --ks-key-alias sktp --ks-pass pass:SaikungPlanner2026 --key-pass pass:SaikungPlanner2026 --out SaiKung-Tour-Planner.apk aligned.apk
+          ls -l SaiKung-Tour-Planner.apk
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apk-v1
+          name: Android APK
+          body: |
+            Installable Android APK of the Sai Kung Tour Planner (WebView build wrapping https://sites.hellominds.ai/scubavo.tuff/hk-tour-planner/index.html).
+
+            Install: allow "Install unknown apps" for your browser or files app, then open the APK and confirm.
+          files: android/SaiKung-Tour-Planner.apk
