@@ -1,5 +1,13 @@
 # Changelog
 
+### v1.0.11 — 2026-11-20
+- **Three water pins re-geocoded to their actual land positions (OpenStreetMap-verified):**
+  - 🦞 **Seafood Island Restaurant** (海鮮島, G/F, 6 Po Toi O Chuen Road): from open water near Shelter Island (22.3247, 114.2899) to the **Po Toi O village waterfront** — 22.2750, 114.2954 (OSM hamlet 布袋澳 22.27493/114.29416, village residential polygon and coastline).
+  - 🏖 **Clear Water Bay Second Beach** (清水灣第二灣泳灘): from the sea (22.3268, 114.3066) to the real beach at Tai Wan Tau — 22.2874, 114.2879 (OSM way 35927770).
+  - ⛩️ **Tin Hau Temple (High Island)** (糧船灣天后宮): from inside the High Island Reservoir (22.3696, 114.3621) to its actual site beside Sai Kung Man Yee Road next to Leung Shuen Wan Pier — 22.3499, 114.3541 (OSM way 471485076).
+- Unchanged: everything else — names, ratings, photos, features, layouts, tour behavior.
+- Release: https://github.com/swaneeyeung-star/hk-tour-planner/releases/tag/v1.0.11
+
 ### v1.0.10 — 2026-11-20
 - **Desktop tour: full spotlight setup restored** — on desktop the quick tour is back to the complete v1.0.8 experience: full-screen shade with a lit cutout on the described area, solid spotlight squares, tap-blocking outside the guide, and auto-opening of the menu for sidebar steps.
 - **First step centered on desktop** — the one desktop change: the first step's tour guide card now sits centered on the screen (horizontally and vertically), guarded by the same mobile viewport predicate so mobile behavior is untouched; all other steps keep their existing positioning.
