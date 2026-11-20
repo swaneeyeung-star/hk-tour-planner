@@ -1,5 +1,12 @@
 # Changelog
 
+### v1.0.10 — 2026-11-20
+- **Desktop tour: full spotlight setup restored** — on desktop the quick tour is back to the complete v1.0.8 experience: full-screen shade with a lit cutout on the described area, solid spotlight squares, tap-blocking outside the guide, and auto-opening of the menu for sidebar steps.
+- **First step centered on desktop** — the one desktop change: the first step's tour guide card now sits centered on the screen (horizontally and vertically), guarded by the same mobile viewport predicate so mobile behavior is untouched; all other steps keep their existing positioning.
+- **Mobile unchanged** — phones/tablets keep the exact current tour; nothing changed there.
+- Unchanged: all features, coins, rewards, routes, review cap, Wanderbos naming, 7-language UI, PWA/offline shell, desktop & mobile layouts.
+- Release: https://github.com/swaneeyeung-star/hk-tour-planner/releases/tag/v1.0.10
+
 ### v1.0.9 — 2026-11-20
 - **Desktop tutorial restored to the original (pre-mobile) experience** — on desktop the quick tour behaves exactly as before the mobile-era rebuild: the original dashed blue outline around the described area with the original large translucent dim shadow (the 9999px box-shadow approach), no full-screen shade layer, no lit cutout, no solid spotlight squares, and no tap-blocking — the page stays fully interactive while the guide points things out, and the card renders with the original positioning logic.
 - **Mobile tutorial unchanged** — on phones/tablets the upgraded tour stays exactly as shipped in v1.0.8: full-screen shade + lit cutout, solid spotlight squares, tap-blocking outside the lit area, and auto-opening of the menu for sidebar steps.
