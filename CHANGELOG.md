@@ -1,5 +1,13 @@
 # Changelog
 
+### v1.0.13 — 2026-11-20
+- **Quick tour scroll lock** — while a tour step is open, user scrolling is blocked: wheel, touch-drag, arrow keys, Space, PageUp/PageDown, Home/End are swallowed and a scroll-reset guard (TourScrollLock) holds the page at its position (the tour's own Escape/finish flows unaffected). Everything releases on finish, skip or Escape.
+- **Quick tour auto-opens for every guest visit** — a guest (not signed in) now gets the tour on every fresh page load regardless of the seen flag (`sk_tutorial_done_v1`); signed-in users keep the previous once-per-browser behavior.
+- **Escape closes the quick tour** — Escape now routes to tourFinish when the tour card is open (finish/skip already closed it).
+- Version banners updated to v1.0.13 (3 markers).
+- Unchanged: Wanderbos single standard pose (v1.0.12), OSM-corrected water pins (v1.0.11), desktop & mobile layouts, map data, restaurants, coins, reviews, mascot artwork, i18n, PWA/offline shell.
+- Release: https://github.com/swaneeyeung-star/hk-tour-planner/releases/tag/v1.0.13
+
 ### v1.0.12 — 2026-11-20
 - **Wanderbos: single standard pose everywhere** — every Wanderbos now renders in the one standard pose in all contexts (map spawn points, discovery popups, the gallery and the collection). The 24 per-look pose transforms (rotate / scale / flip / translate) are removed: all `.mArt[data-look|=…]` rules now use `transform:none`.
 - **Costumes & colors untouched** — costume overlays (hats, props, aura), drop-shadow blending and every per-look color grade (filter) remain exactly as before. No pose-switching UI existed, so no UI removal was needed.
