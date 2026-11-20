@@ -1,5 +1,12 @@
 # Changelog
 
+### v1.0.14 — 2026-11-20
+- **Leaflet credit removed, HK flag badge added** — the "Leaflet" link in the map's bottom-right attribution corner is gone (`map.attributionControl.setPrefix(false)`); a small Hong Kong flag badge (inline SVG: red field + white bauhinia petals) now sits in its place.
+- **OpenStreetMap credit retained** — the required '© OpenStreetMap contributors' line stays (OSM tile policy); nothing else in the corner changed.
+- Version banners updated to v1.0.14 (3 markers).
+- Unchanged: desktop & mobile layouts, quick-tour behavior (scroll lock + guest auto-open), Wanderbos single pose, water-pin fixes, map data, restaurants, coins, reviews, i18n, PWA/offline shell.
+- Release: https://github.com/swaneeyeung-star/hk-tour-planner/releases/tag/v1.0.14
+
 ### v1.0.13 — 2026-11-20
 - **Quick tour scroll lock** — while a tour step is open, user scrolling is blocked: wheel, touch-drag, arrow keys, Space, PageUp/PageDown, Home/End are swallowed and a scroll-reset guard (TourScrollLock) holds the page at its position (the tour's own Escape/finish flows unaffected). Everything releases on finish, skip or Escape.
 - **Quick tour auto-opens for every guest visit** — a guest (not signed in) now gets the tour on every fresh page load regardless of the seen flag (`sk_tutorial_done_v1`); signed-in users keep the previous once-per-browser behavior.
